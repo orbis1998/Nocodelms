@@ -197,8 +197,8 @@ const LESSONS = {
       <rect x="20" y="54" width="30" height="22" rx="4" fill="rgba(245,158,11,.15)" stroke="rgba(245,158,11,.4)" stroke-width="1.2"/>
       <rect x="60" y="54" width="30" height="22" rx="4" fill="rgba(16,185,129,.15)" stroke="rgba(16,185,129,.4)" stroke-width="1.2"/>
       <text x="35" y="34" text-anchor="middle" font-size="9" fill="rgba(167,139,250,1)" font-family="sans-serif" font-weight="700">AI</text>
-      <text x="75" y="34" text-anchor="middle" font-size="9" fill="rgba(34,211,238,1)" font-family="sans-serif" font-weight="700">⚡</text>
-      <text x="35" y="68" text-anchor="middle" font-size="9" fill="rgba(251,191,36,1)" font-family="sans-serif" font-weight="700">🎨</text>
+      <text x="75" y="34" text-anchor="middle" font-size="9" fill="rgba(34,211,238,1)" font-family="sans-serif" font-weight="700">web</text>
+      <text x="35" y="68" text-anchor="middle" font-size="9" fill="rgba(251,191,36,1)" font-family="sans-serif" font-weight="700">DEX</text>
       <text x="75" y="68" text-anchor="middle" font-size="9" fill="rgba(52,211,153,1)" font-family="sans-serif" font-weight="700">▲</text>
     </svg>`,
     illusLabel: 'Les 4 catégories d\'outils : IA · No-Code · Design · Déploiement',
@@ -331,7 +331,7 @@ const LESSONS = {
       <rect x="18" y="50" width="76" height="4" rx="2" fill="rgba(255,255,255,.1)"/>
       <rect x="18" y="57" width="80" height="4" rx="2" fill="rgba(255,255,255,.08)"/>
       <rect x="18" y="66" width="60" height="10" rx="4" fill="rgba(124,58,237,.5)" stroke="rgba(124,58,237,.8)" stroke-width="1"/>
-      <text x="48" y="73" text-anchor="middle" font-size="7" fill="white" font-family="sans-serif" font-weight="700">Générer avec IA ✨</text>
+      <text x="48" y="73" text-anchor="middle" font-size="7" fill="white" font-family="sans-serif" font-weight="700">Générer avec IA</text>
     </svg>`,
     illusLabel: 'Interface Lovable — décris ton projet, Lovable génère l\'app complète',
     body: `<h2 class="sec-h2">Ce que Lovable peut créer</h2>
@@ -580,12 +580,12 @@ function renderDashboard() {
   content.innerHTML = `
   <div class="dash-hero fade-in">
     <div class="dash-hero-glow"></div>
-    <h1 class="dash-title">Bienvenue${state.studentName ? ', <span class="grad">' + state.studentName + '</span>' : ''} 👋</h1>
+    <h1 class="dash-title">Bienvenue${state.studentName ? ', <span class="grad">' + state.studentName + '</span>' : ''}</h1>
     <p class="dash-sub">Continue ta progression. ${done === 0 ? 'Commence par la première leçon !' : `Tu as complété <strong>${done}/${total} leçons</strong> — continue comme ça !`}</p>
     ${firstUnfinished ? `<button class="dash-cta" onclick="renderLesson('${firstUnfinished.id}')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       ${done === 0 ? 'Commencer la formation' : 'Continuer la formation'}
-    </button>` : '<button class="dash-cta" onclick="renderCertPage()">🎓 Obtenir mon diplôme</button>'}
+    </button>` : '<button class="dash-cta" onclick="renderCertPage()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6H2v-6a2 2 0 012-2h16a2 2 0 012 2z"/><circle cx="12" cy="8" r="2"/><path d="M4 14l2-4h12l2 4M8 18h8"/></svg>Obtenir mon diplôme</button>'}
   </div>
 
   <div class="stats-row fade-in">
