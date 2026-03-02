@@ -7,6 +7,7 @@
 const ACCESS_KEY = 'NOCODE2025';
 const XP_PER_LESSON = 50;
 const STORAGE_KEY = 'nca_state';
+// ADMIN_KEY et STUDENTS_STORAGE_KEY sont définis dans admin-panel.js
 
 // ── Curriculum Data ────────────────────────────────────────
 const CURRICULUM = [
@@ -470,6 +471,10 @@ function loadState() {
 
 function saveState() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  // Track student progress
+  if (state.studentName) {
+    trackStudent(state.studentName, state.xp, state.completed, state.projectUrl);
+  }
 }
 
 function computeProgress() {
@@ -487,9 +492,20 @@ function initLogin() {
 
   function attempt() {
     const val = input.value.trim().toUpperCase();
-    if (val === ACCESS_KEY || val === 'DEMO') {
+    if (val === ADMIN_KEY) {
+      // Admin access
       loginPage.style.display = 'none';
       app.style.display = 'flex';
+      renderAdminPanel();
+    } else if (val === ACCESS_KEY || val === 'DEMO') {
+      // Student access
+      loginPage.style.display = 'none';
+      app.style.display = 'flex';
+      const studentName = prompt('Quel est ton prénom ?', 'Élève');
+      if (studentName) {
+        state.studentName = studentName;
+        trackStudent(studentName, 0, []);
+      }
       initApp();
     } else {
       input.classList.add('err');
